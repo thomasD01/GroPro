@@ -1,0 +1,7 @@
+# Test für datenreduktion1
+HH;H;B;L;HH
+K;FFM;K;L
+HH;H;FFM;N;M;FFM
+H;FFM;N;H;FFM
+DA;FFM;N
+HH;FFM;M;FFM
