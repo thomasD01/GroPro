@@ -1,10 +1,18 @@
 
 export class Zugstrecken 
 {
-  #strecken: string[][] = [];
+  #strecken: string[][];
   public laenge: number = 0;
 
-  constructor(){}
+  constructor(strecken: string[][] = []){
+    this.#strecken = strecken;
+    this.laenge = strecken.length;
+  }
+
+  public setStrecke(index: number, strecke: string[]): void
+  {
+    this.#strecken[index] = strecke;
+  }
 
   public getStrecken(): string[][]
   {
@@ -54,12 +62,17 @@ export class Zugstrecken
     this.laenge = zeilen.length;
     for(let zeile of zeilen)
     {
-      if(zeile.startsWith('#'))
+      if(zeile.startsWith('#')||zeile.length == 0)
       {
         this.laenge--;
         continue;
       }
-      this.#strecken.push(zeile.split(';'));
+      let stationen = zeile.split(';');
+      for(let i=0; i<stationen.length; ++i)
+      {
+        stationen[i] = stationen[i].trim();
+      }
+      this.#strecken.push(stationen);
     }
   }
 }

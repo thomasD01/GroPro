@@ -6,9 +6,9 @@ export class Algorithmen
 
   public datenreduktion1(strecken: Zugstrecken): void
   {
-    for(let strecke of strecken.getStrecken())
+    for(let i=0; i<strecken.laenge; ++i)
     {
-      strecke = Array.from(new Set(strecke));
+      strecken.setStrecke(i, Array.from(new Set(strecken.getStrecke(i))));
     }
   }
   public datenreduktion2(strecken: Zugstrecken): void
